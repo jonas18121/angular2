@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './component/base/app.component';
 import { PresentationComponent } from './component/presentation/presentation.component';
 
 @NgModule({
@@ -15,6 +15,6 @@ import { PresentationComponent } from './component/presentation/presentation.com
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, PresentationComponent]
 })
 export class AppModule { }

@@ -1,1 +1,44 @@
 <p>presentation works!</p>
+
+<p> Hello {{ name }}</p>
+
+<p>Cette {{ product.name }} coute {{ product.price }} €</p>
+
+<p> {{ html }} </p>
+
+<!-- syntaxe [] = directive -->
+<p>[innerHTML]="html"</p>
+
+<p>
+    <small>
+        Tous les attributs HTML,
+        exisette sous la forme directive Angular <br>
+        HTML = &lt;p id="test"&gt; ... &lt;/p&gt; <br>
+        Angular = &lt;p [id]="test"&gt; ... &lt;/p&gt; <br>
+    </small>
+</p>
+
+<!-- <img src="{{ img }}" alt="image sous html" -->
+<!-- <img [src]="img " alt="image sous Angular" -->
+
+
+
+
+<section>
+    <h3>Les Evenements</h3>
+
+    <button (click)="clicked()" >Cliquez ici</button>
+
+
+    <p>
+        <a href="#" (click)="confirmation($event)" >Confirmez</a>
+    </p>
+
+    <!-- Single Page Application -->
+    <!-- Application de type spa charge toute les vus avec 1 seul page html -->
+    <!-- 
+        Par conséquence la page html, doit être recharger le moins souvent possible,
+        Donc on récupère l'evenement, puis event.preventDefault, et on fait notre code
+     -->
+</section>
+
