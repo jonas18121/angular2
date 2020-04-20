@@ -1,5 +1,7 @@
 <p>presentation works!</p>
 
+<h3>Affichage</h3>
+
 <p> Hello {{ name }}</p>
 
 <p>Cette {{ product.name }} coute {{ product.price }} €</p>
@@ -42,3 +44,46 @@
      -->
 </section>
 
+<section>
+    <h3>Two way data binding</h3>
+
+    <p>ngModel</p>
+
+    <input type="text" placeholder="entrer votre message " [(ngModel)]="message">
+    <button (click)="displayMessage()">voir le message</button>
+    <p>{{ message }}</p>
+</section>
+
+<section>
+    <h3>variable de template</h3>
+
+    <p>#nom_de_variable </p>
+    <p>detecChange() = responsable de la mise à jour de la vue</p>
+    <ul>
+        <li>Event</li>
+        <li>ngModel</li>
+        <li>Formulaire (event)</li>
+    </ul>
+
+    <input type="text" placeholder="Entrer votre message " #input (keyup.enter)="0" />
+    <dl>
+        <dt>Type :</dt>
+        <dd>{{ input.type }}</dd>
+        <dt>Placeholder :</dt>
+        <dd>{{ input.placeholder }}</dd>
+        <dt>Value :</dt>
+        <dd>{{ input.value }}</dd>
+    </dl>
+
+
+</section>
+
+<section>
+    <h3>ngFor (ngForOf)</h3>
+
+    <ul>
+        <li *ngFor="let name of liste; index as key" >
+            {{ name }} <small> ({{ key }}) </small>
+        </li>
+    </ul>
+</section>
