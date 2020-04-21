@@ -1,0 +1,35 @@
+<main class="container-fluid">
+    <header class="pt-5">
+        <h1>Angular 9 </h1>
+        <hr>
+    </header>
+
+    <nav class="my-3">
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="" class="nav-link" [routerLink]="['/home']"  routerLinkActive="active" >Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link" [routerLink]="['/filtre']"  routerLinkActive="active" >Filtre</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link" [routerLink]="['/directive']"  routerLinkActive="active" >Directive</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="nav-link" [routerLink]="['/locale']"  routerLinkActive="active" >Directive</a>
+            </li>
+        </ul>
+    </nav>
+
+    
+
+    <router-outlet></router-outlet>
+
+    <footer>
+        <hr>
+        <p class="small text-center">
+            Formation Angular 9
+        </p>
+    </footer>
+</main>
