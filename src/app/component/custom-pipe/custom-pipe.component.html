@@ -1,0 +1,42 @@
+<header>
+  <h1>Les Filtres Personnalisés</h1>
+</header>
+
+<p>
+  Pour créer un pipe angular, on va utiliser la commande <code>ng generate pipe ...</code> ou <code>ng g p ...</code><br />
+  On va venir mettre nos Filtres (pipes) dans le répertoire <code>pipe/</code>
+</p>
+
+<p>
+  Un Pipe est une classe, dans la laquelle on a ajouté le décorateur @Pipe, dans le lequel on retrouve le nom<br />
+  implemente pipetransform
+</p>
+
+<p>Palindrome: Engage le jeu que je le gagne / Élu par cette crapule </p>
+
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Entrer un palindrome" #input (keyup.enter)="0" />
+</div>
+
+<p class="form-control-plaintext"> {{ input.value | pipelindrome }} </p>
+
+<hr />
+
+<section class="row">
+  <article class="col">
+    <p class="lead">Utilisateurs Présents</p>
+
+    <ul class="list-unstyled">
+      <li *ngFor="let user of liste | present ">{{ user.name }}</li>
+    </ul>
+
+  </article>
+  <article class="col">
+    <p class="lead">Utilisateurs Absents</p>
+
+    <ul class="list-unstyled">
+      <li *ngFor="let user of liste | present: false">{{ user.name }}</li>
+    </ul>
+
+  </article>
+</section>

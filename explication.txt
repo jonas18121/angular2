@@ -1,3 +1,0 @@
-le fichier tslint.json , s'assure de la bonne syntaxe d'écriture dans le framework
-
-ts = typescript

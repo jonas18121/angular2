@@ -1,90 +1,109 @@
-<p>presentation works!</p>
+<h1>Présentation</h1>
 
 <h3>Affichage</h3>
-
-<p> Hello {{ name }}</p>
-
-<p>Cette {{ product.name }} coute {{ product.price }} €</p>
-
-<p> {{ html }} </p>
-
-<!-- syntaxe [] = directive -->
-<p>[innerHTML]="html"</p>
-
-<p>
+<section>
+  <p> 1 + 2 = {{ 1 + 2 }} </p>
+  <p>
     <small>
-        Tous les attributs HTML,
-        exisette sous la forme directive Angular <br>
-        HTML = &lt;p id="test"&gt; ... &lt;/p&gt; <br>
-        Angular = &lt;p [id]="test"&gt; ... &lt;/p&gt; <br>
+      Opérateur moustache: permet de faire interpolation de chaine
     </small>
-</p>
+  </p>
 
-<!-- <img src="{{ img }}" alt="image sous html" -->
-<!-- <img [src]="img " alt="image sous Angular" -->
+  <p> Hello {{ name }} </p>
 
+  <p>{{ product.name }} @ {{ product.price }} &euro;</p>
 
+  <p>{{ html }}</p> <!-- le html est auto échappé: xss -->
 
+  <!-- syntaxe [] = directive -->
+  <p [innerHTML]="html"></p>
 
-<section>
-    <h3>Les Evenements</h3>
+  <p>
+    <small>
+      Tous les attributs HTML,
+      existe sous la formation directive Angular.<br/>
+      HTML = &lt;p id="test"&gt; ... &lt;/p&gt; <br/>
+      Angular = &lt;p [id]="'test'"&gt; ... &lt;/p&gt;
+    </small>
+  </p>
 
-    <button (click)="clicked()" >Cliquez ici</button>
+  <img src="{{ img }}" alt="Tony Tony Chopper"/>
 
-
-    <p>
-        <a href="#" (click)="confirmation($event)" >Confirmez</a>
-    </p>
-
-    <!-- Single Page Application -->
-    <!-- Application de type spa charge toute les vus avec 1 seul page html -->
-    <!-- 
-        Par conséquence la page html, doit être recharger le moins souvent possible,
-        Donc on récupère l'evenement, puis event.preventDefault, et on fait notre code
-     -->
+  <img [src]="img" alt="Tony Tony Chopper"/>
 </section>
 
+<h3>Les Evénements</h3>
 <section>
-    <h3>Two way data binding</h3>
 
-    <p>ngModel</p>
+  <p>
+    <button (click)="clicked()"> Cliquez ici</button>
+  </p>
 
-    <input type="text" placeholder="entrer votre message " [(ngModel)]="message">
-    <button (click)="displayMessage()">voir le message</button>
-    <p>{{ message }}</p>
-</section>
+  <p>
+    <a href="#" (click)="confirmation($event)">Confirmer</a>
+  </p>
 
-<section>
-    <h3>variable de template</h3>
-
-    <p>#nom_de_variable </p>
-    <p>detecChange() = responsable de la mise à jour de la vue</p>
-    <ul>
-        <li>Event</li>
-        <li>ngModel</li>
-        <li>Formulaire (event)</li>
-    </ul>
-
-    <input type="text" placeholder="Entrer votre message " #input (keyup.enter)="0" />
-    <dl>
-        <dt>Type :</dt>
-        <dd>{{ input.type }}</dd>
-        <dt>Placeholder :</dt>
-        <dd>{{ input.placeholder }}</dd>
-        <dt>Value :</dt>
-        <dd>{{ input.value }}</dd>
-    </dl>
-
+  <!-- Single Page Application -->
+  <!-- App type SPA charge toutes les vues avec 1 seule page html -->
+  <!--
+    Par conséquent la page html, doit être rechargé le moins
+    souvent possible (ne pas utiliser le protocol http)
+  -->
+  <!--
+    Pour récupérer un évenement, on utilise une variable $event
+  -->
 
 </section>
 
-<section>
-    <h3>ngFor (ngForOf)</h3>
+<h3>Two Way Data Binding</h3>
+<p>ngModel = Banana in box [()]</p>
 
-    <ul>
-        <li *ngFor="let name of liste; index as key" >
-            {{ name }} <small> ({{ key }}) </small>
-        </li>
-    </ul>
+<section>
+
+  <input type="text" placeholder="Entrer votre message" [(ngModel)]="message"/>
+  <button (click)="displayMessage()">Voir le message</button>
+  <p>{{ message }}</p>
+
 </section>
+
+<h3>Variables de template</h3>
+<p>#nom_de_la_variable = document.querySelector()/document.getElementById()</p>
+<p>detectChange() => responsable de la mise à jour de la vue</p>
+<ul>
+  <li>Event</li>
+  <li>ngModel</li>
+  <li>Formulaire (event)</li>
+</ul>
+
+<section>
+  <!-- HTMLInputElement -->
+  <input type="text" placeholder="Entrer votre message" #input (keyup.enter)="0" />
+  <dl>
+    <dt>Type:</dt>
+    <dd>{{ input.type }}</dd>
+    <dt>Placeholder:</dt>
+    <dd>{{ input.placeholder }}</dd>
+    <dt>Value:</dt>
+    <dd>{{ input.value }}</dd>
+  </dl>
+
+</section>
+
+<h3>ngFor (ngForOf)</h3>
+<section>
+
+  <ul>
+    <li *ngFor="let name of liste; index as key">{{ name }} <small>({{ key }})</small></li>
+  </ul>
+
+</section>
+
+
+
+
+
+
+
+
+
 

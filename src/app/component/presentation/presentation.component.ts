@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; //équivalent d'un controlleur
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-presentation',
@@ -7,53 +7,52 @@ import { Component, OnInit } from '@angular/core'; //équivalent d'un controlleu
 })
 export class PresentationComponent implements OnInit {
 
-  name = 'stéphane';
+  // par défaut, si vous ne précisez pas de visibilité
+  // les propriétés sont publics
+  name = 'Stéphane'; // string
+  chaine: string;
+  product = { name: 'Pomme', price: 12.90 };
+  html = '<b>Hello World</b>';
+  img = 'assets/images/chopper.jpg';
 
-  product = {name: 'pomme', price: '12.5' };
-
-  html = '<b> bullot </b>';
-
-  // img = "assets/images/image.png";
-
-message : string;
-
-liste = [
-  "Aurélie", 
-  "Claudie",
-  "Clément", 
-  "Jonathan l",
-  "Jonathan k",
-  "Lin",
-  "Maxime",
-  "Michael", 
-  "Ndiaye", 
-  "Nicolas D",
-  "Nicolas N", 
-  "Stéphane"
-];
-
+  message: string;
+  liste = [
+    'Aurélie', 'Claudie', 'Clément', 'Johny', 'Jonathan K', 'Jonathan L',
+    'Julia', 'Lin', 'Maxime', 'Michael', 'Ndiaye', 'Nicolas D', 'Nicolas N',
+    'Stéphane'
+  ];
 
   constructor() { }
 
   ngOnInit(): void {
     console.log('coucou');
-    
   }
 
-  public clicked(): void 
-  {
-    alert('bravo !');
+  public clicked(): void {
+    alert('Bravo !');
   }
 
-  public confirmation(event) : void
-  {
+  public confirmation(event: MouseEvent): void {
     event.preventDefault();
-    confirm('Ete vous sur ?');
+    confirm('Etes vous sur ?');
   }
 
-  public displayMessage()
-  {
+  public displayMessage(): void {
     alert(this.message);
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

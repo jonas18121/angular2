@@ -1,0 +1,59 @@
+<header>
+  <h1>Formulaire</h1>
+</header>
+
+<p class="small">Template Driven Forms</p>
+<p class="small">Two Way Data Binding = ngModel</p>
+<p>Angular ajoute une instance sur nos formulaires pour pouvoir les piloter</p>
+<p>Les validateurs = attributs HTML5</p>
+
+<section class="row">
+
+  <aside class="col-4">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let product of products">
+        {{ product.name }} @ {{ product.price | currency }}
+      </li>
+    </ul>
+  </aside>
+
+  <article class="col-8">
+
+    <form (submit)="addProduct(form)" #form="ngForm">
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Name: </label>
+        <div class="col-10">
+          <input type="text" name="name" class="form-control" placeholder="Product name ..." required
+                 [(ngModel)]="product.name" #inputName="ngModel" />
+          <p class="form-control-plaintext text-danger" *ngIf="inputName.touched && inputName.hasError('required')">
+            Name Required
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Price: </label>
+        <div class="col-10">
+          <input type="text" name="price" class="form-control" placeholder="Product price ..." required
+                 pattern="^[0-9]+(\.[0-9]+)?" [(ngModel)]="product.price" #inputPrice="ngModel" />
+          <p class="form-control-plaintext text-danger" *ngIf="inputPrice.touched && inputPrice.hasError('required')">
+            Price Required
+          </p>
+          <p class="form-control-plaintext text-danger" *ngIf="inputPrice.touched && inputPrice.hasError('pattern')">
+            Incorrect price format
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-10 offset-2">
+          <input type="submit" class="btn btn-outline-primary" value="Add" [disabled]="form.invalid" />
+        </div>
+      </div>
+
+    </form>
+
+  </article>
+
+</section>

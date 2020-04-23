@@ -1,35 +1,53 @@
 <main class="container-fluid">
-    <header class="pt-5">
-        <h1>Angular 9 </h1>
-        <hr>
-    </header>
+  <header class="pt-5">
+    <h1>Angular 9</h1>
+    <hr />
+  </header>
 
-    <nav class="my-3">
-        <ul class="nav">
-            <li class="nav-item">
-                <a href="" class="nav-link" [routerLink]="['/home']"  routerLinkActive="active" >Accueil</a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link" [routerLink]="['/filtre']"  routerLinkActive="active" >Filtre</a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link" [routerLink]="['/directive']"  routerLinkActive="active" >Directive</a>
-            </li>
+  <nav class="my-3">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/presentation" routerLinkActive="active">Présentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/todo" routerLinkActive="active">TodoList</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/filtre" routerLinkActive="active">Les Filtres</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/directive" routerLinkActive="active">Les Directives</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/locale" routerLinkActive="active">Les Locales</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="custom/pipe" routerLinkActive="active">Les Filtres Personnalisés</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="custom/directive" routerLinkActive="active">Les Directives Personnalisés</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="formulaire" routerLinkActive="active">Formulaire</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="signup" routerLinkActive="active">Inscription</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="service" routerLinkActive="active">Service</a>
+      </li>
+    </ul>
+  </nav>
 
-            <li class="nav-item">
-                <a href="" class="nav-link" [routerLink]="['/locale']"  routerLinkActive="active" >Directive</a>
-            </li>
-        </ul>
-    </nav>
+  <router-outlet></router-outlet>
 
-    
-
-    <router-outlet></router-outlet>
-
-    <footer>
-        <hr>
-        <p class="small text-center">
-            Formation Angular 9
-        </p>
-    </footer>
+  <footer>
+    <hr />
+    <p class="small text-center">
+      Formation Angular - Dawan FOAD - Avril 2020
+    </p>
+  </footer>
 </main>

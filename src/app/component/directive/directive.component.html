@@ -1,98 +1,117 @@
-<p>directive works!</p>
+<header>
+  <h1>Les Directives</h1>
+</header>
 
 <ul>
-    <li>Les directive structurelles: on pour but de modifier le DOM
-        en ajoutant , enlevant, ou remplaçant un élément du DOM
-    </li>
-    <li>Les directives attributs : modifie l'apparence ou lecomportement d'un élément</li>
+  <li>Les directives structurelles : Elles ont pour but de modifier le DOM en ajoutant,
+    enlevant ou replaçant un élément du DOM.
+  </li>
 
-    <li>Tous les éléments <b>HTML</b> axistent sous forme directive Angular</li>
+  <li>Les directives attributs : Elles ont pour but de modifier l'apparence ou le
+    comportement d'un élément.
+  </li>
+
+  <li>Tous les attributs <b>HTML</b> existent sous la forme d'une directive Angular</li>
 </ul>
 
-<section>
-    <h3>ngIf</h3>
+<h3>ngIf</h3>
+<article>
+  <button class="btn btn-outline-primary my-3" (click)="isVisible = !isVisible">
+    Toggle Boolean
+  </button>
 
-    <button class="btn btn-outline-primary my-3" (click)="isVisible = !isVisible" >Toogle Boolean</button>
+  <p *ngIf="isVisible">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid deserunt dignissimos doloremque eaque harum
+    magni, numquam odit omnis possimus recusandae repellat sequi tempore velit voluptas. Dolore odit optio ratione.
+  </p>
 
-    <p *ngIf="isVisible">
-        njdizejndejzjdoi kz,ndklmez,ndmze kmd,zem,nedmopze kndkeznfcpoze nzpincre,v inepncp
-    </p>
-    <p *ngIf="isVisible; else elseBlock">
-        ok njdizejndejzjdoi kz,ndklmez,ndmze kmd,zem,nedmopze kndkeznfcpoze nzpincre,v inepncp
-    </p>
+  <p *ngIf="isVisible; else elseBlock">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid deserunt dignissimos doloremque eaque harum
+    magni, numquam odit omnis possimus recusandae repellat sequi tempore velit voluptas. Dolore odit optio ratione.
+  </p>
 
-    <ng-template #elseBlock> 
-        <p>logaritme is omgle [...]</p>
-    </ng-template>
+  <ng-template #elseBlock>
+    <p>Lorem ipsum dolor sit amet, [...] Dolore odit optio ratione.</p>
+  </ng-template>
 
-    <p *ngIf="message(isVisible) as chaine" class="text-warning"> {{ chaine }} </p>
-    <p *ngIf="message(isVisible); let message" class="text-danger"> {{ message }} </p>
+  <p *ngIf="message(isVisible) as chaine" class="text-warning">{{ chaine }}</p>
+  <p *ngIf="message(isVisible); let message" class="text-danger">{{ message }}</p>
+</article>
 
-    <article>
-        <h3>ngFor</h3>
+<h3>ngFor</h3>
+<article>
+  <ul>
+    <li *ngFor="let letter of ['a', 'b', 'c']; index as key">{{ letter }} ({{key}})</li>
+  </ul>
 
-        <ul>
-            <li *ngFor="let letter of ['a', 'b', 'c']; index as key" > {{ letter }} {{ key }} </li>
-        </ul>
-    </article>
+  <p>
+    even = indique si la clé est paire<br/>
+    odd = indique si la clé est impaire<br/>
+    first = indique si on se trouve sur la première valeur du tableau <br/>
+    last = indique si on se trouve sur la dernière valeur du tableau <br/>
+  </p>
 
-    <article>
-        <h3>ngSwitch</h3>
+</article>
 
-        <div class="btn-groupe btn-groupe-sm my-3">
-            <button class="btn btn-outline-dark" (click)="mode = 'vertical'" >vertical</button>
-            <button class="btn btn-outline-dark" (click)="mode = 'horizontal'" >horizontal</button>
-            <button class="btn btn-outline-dark" (click)="mode = 'null'" >Aucun</button>
-        </div>
+<h3>ngSwitch</h3>
+<article>
+  <div class="btn-group btn-group-sm my-3">
+    <button class="btn btn-outline-dark" (click)=" mode = 'vertical' ">Vertical</button>
+    <button class="btn btn-outline-dark" (click)=" mode = 'horizontal' ">Horizontal</button>
+    <button class="btn btn-outline-dark" (click)=" mode = null ">Aucun</button>
+  </div>
 
-        <div [ngSwitch]="mode" >
-            <ul class="list-unstyled" *ngSwitchCase=" 'vertical' ">
-                <li>Element 1</li>
-                <li>Element 2</li>
-                <li>Element 3</li>
-                <li>Element 4</li>
-                <li>Element 5</li>
-            </ul>
+  <div [ngSwitch]=" mode ">
 
-            <ul class="list-inline" *ngSwitchCase=" 'horizontal' ">
+    <ul class="list-unstyled" *ngSwitchCase=" 'vertical' ">
+      <li>Element 1</li>
+      <li>Element 2</li>
+      <li>Element 3</li>
+      <li>Element 4</li>
+      <li>Element 5</li>
+    </ul>
 
-                <li class="list-inline-item">Element 1</li>
-                <li class="list-inline-item">Element 2</li>
-                <li class="list-inline-item">Element 3</li>
-                <li class="list-inline-item">Element 4</li>
-                <li class="list-inline-item">Element 5</li>
-            </ul>
+    <ul class="list-inline" *ngSwitchCase=" 'horizontal' ">
+      <li class="list-inline-item">Element 1</li>
+      <li class="list-inline-item">Element 2</li>
+      <li class="list-inline-item">Element 3</li>
+      <li class="list-inline-item">Element 4</li>
+      <li class="list-inline-item">Element 5</li>
+    </ul>
 
-            <p *ngSwitchDefault class="text-black-50">choissez un mode d'affichage</p>
-        </div>
-    </article>
+    <p *ngSwitchDefault class="text-black-50">Choisissez un mode d'affichage</p>
 
-    <hr>
+  </div>
+</article>
 
-    <article>
-        <h3> ngClass </h3>
-        <button class="btn btn-outline-primary" (click)="hasClass = !hasClass"> Toggle Class</button>
-        <p class="lead" [ngClass]=" {'text-into': hasClass, 'text-warning': !hasClass } ">Loezffz jnlon jnn jnjn</p>
-    </article>
+<hr/>
 
-    <article>
-        <h3> ngStyle </h3>
+<h3>ngClass</h3>
 
-        <div class="btn-group btn-group-sm my-3">
-            <button class="btn btn-outline-primary" (click)="progress = '0%'; bgcolor='red'"> 0%</button>
-            <button class="btn btn-outline-primary" (click)="progress = '25%'; bgcolor='red'"> 25%</button>
-            <button class="btn btn-outline-primary" (click)="progress = '50%'; bgcolor='orange'"> 50%</button>
-            <button class="btn btn-outline-primary" (click)="progress = '75%'; bgcolor='yellowgreen'"> 75%</button>
-            <button class="btn btn-outline-primary" (click)="progress = '100%'; bgcolor='limegreen'"> 100%</button>
-        </div>
+<button class="btn btn-outline-primary" (click)="hasClass = !hasClass">Toggle Class</button>
 
-        <div class="progress">
-            <div class="progress-bar" [ngStyle]="{ 'width': progress, 'background-color': bgcolor }" ></div>
-        </div>
+<!-- string / array / object -->
+<p class="lead" [ngClass]=" { 'text-info': hasClass, 'text-warning': !hasClass } ">Lorem ipsum dolor sit amet, consectetur
+  adipisicing elit. Ad aliquid deserunt dignissimos doloremque eaque harum magni, numquam odit omnis possimus
+  recusandae repellat sequi tempore velit voluptas. Dolore odit optio ratione.</p>
+
+<h3>ngStyle</h3>
+<div class="btn-group btn-group-sm my-3">
+  <button class="btn btn-outline-dark" (click)=" progress = '0%'; bgcolor='red' ">0%</button>
+  <button class="btn btn-outline-dark" (click)=" progress = '25%'; bgcolor='red' ">25%</button>
+  <button class="btn btn-outline-dark" (click)=" progress = '50%'; bgcolor='orange' ">50%</button>
+  <button class="btn btn-outline-dark" (click)=" progress = '75%'; bgcolor='yellowgreen' ">75%</button>
+  <button class="btn btn-outline-dark" (click)=" progress = '100%'; bgcolor='limegreen' ">100%</button>
+</div>
+
+<div class="progress">
+  <div class="progress-bar" [ngStyle]="{ 'width': progress, 'background-color': bgcolor }"></div>
+</div>
+
+<div class="progress mt-3">
+  <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100" [style.width]="progress"></div>
+</div>
 
 
-        <div class="progress mt-3">
-            <div class="progress-bar" [style.width]="progress" role="progressbar" [attr.aria-valuenow]=" progress " aria-valuemin="0" aria-valuemax="100" ></div>
-        </div>
-    </article>
-</section>
+
+

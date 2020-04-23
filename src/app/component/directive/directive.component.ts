@@ -13,15 +13,18 @@ export class DirectiveComponent implements OnInit {
   bgcolor = 'red';
   mode: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  public message (visible: boolean): string{
-    if(visible){
-      return 'Hello word';
+  public message(visible: boolean): string {
+    if (visible) {
+      return 'Hello World';
     }
+
     return;
   }
+
 }

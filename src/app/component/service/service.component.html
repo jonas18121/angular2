@@ -1,0 +1,13 @@
+<p>service works!</p>
+
+<section>
+    <h3>Casear Cipher</h3>
+    
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder='Message Secret' [(ngModel)]="message">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" (click)="crypter()">Cryper</button>
+        </div>
+    </div>
+    <p class="form-control-plaintext">{{ encrypted }}</p>
+</section>

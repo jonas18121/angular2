@@ -1,0 +1,33 @@
+<h1>Todo List</h1>
+
+<p>Manipulation de tableau:</p>
+
+<ul>
+  <li>Pour ajouter une valeur: myArray.push(value)</li>
+  <li>Pour supprimer une valeur: myArray.splice(index, quantite)</li>
+</ul>
+
+<p>Créer un nouveau composant et l'ajouter dans le fichier index.html</p>
+<p>ng generate component ....</p>
+
+
+<section class="row">
+  <aside class="col-3">
+
+    <ul class="list-unstyled">
+      <li *ngFor="let task of tasks; index as key" (click)="remove(key)">{{ task }}</li>
+    </ul>
+
+  </aside>
+  <article class="col-9">
+
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Ajouter une tache" [(ngModel)]="task" (keyup.enter)="add()"/>
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" (click)="add()">Ajouter</button>
+      </div>
+    </div>
+
+  </article>
+
+</section>

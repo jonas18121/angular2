@@ -1,21 +1,20 @@
-<p>locale works!</p>
+<header>
+  <h1>Les locales</h1>
+</header>
 
-<section>
+<div class="btn-group btn-group-sm my-3 mr-3">
+  <button class="btn-outline-secondary btn" (click)="lang = 'en'">Anglais</button>
+  <button class="btn-outline-secondary btn" (click)="lang = 'fr'">Français</button>
+  <button class="btn-outline-secondary btn" (click)="lang = 'de'">Allemand</button>
+  <button class="btn-outline-secondary btn" (click)="lang = 'ja'">Japonais</button>
+</div>
 
-    <div class="btn-group btn-group-sm my-3">
-        <button class="btn-outline-secondary btn" (click)="lang = 'en'" >Anglais</button>
-        <button class="btn-outline-secondary btn" (click)="lang = 'fr'" >Français</button>
-        <button class="btn-outline-secondary btn" (click)="lang = 'de'" >Allemand</button>
-        <button class="btn-outline-secondary btn" (click)="lang = 'ja'" >Japonais</button>
-    </div>
-    <hr>
+<div class="btn-group btn-group-sm my-3">
+  <button class="btn-outline-secondary btn" (click)="devise = 'USD'">Dollar</button>
+  <button class="btn-outline-secondary btn" (click)="devise = 'EUR'">Euro</button>
+  <button class="btn-outline-secondary btn" (click)="devise = 'JPY'">Yen</button>
+</div>
 
-    <div class="btn-group btn-group-sm my-3">
-        <button class="btn-outline-secondary btn" (click)="devise = 'USD' " >Dollars</button>
-        <button class="btn-outline-secondary btn" (click)="devise = 'EUR' " >Euro</button>
-        <button class="btn-outline-secondary btn" (click)="devise = 'JPY' " >Yen</button>
-    </div>
+<p> {{ date | date:'full':'':lang }}</p>
 
-    <p> {{ date | date:'full': '' : lang }} </p>
-    <p> {{ 1234567.89 | currency: devise :'symbol-narrow':'':lang }} </p>
-</section>
+<p> {{ 1234567.89 | currency:devise:'symbol-narrow':'':lang }}</p>

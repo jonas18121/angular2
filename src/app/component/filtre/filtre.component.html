@@ -1,71 +1,83 @@
-<p>filtre works!</p>
+<header>
+  <h1>Les Filtres <small>(Pipes)</small></h1>
+</header>
 
-<section>
-    <header>
-        <h1>Les Filtre <small>(Pipe)</small> </h1>
-    </header>
+<article>
+  <h3>Chaine de caractère</h3>
 
-    <h3>Chaine de caractère</h3>
+  <p> Majuscule: {{ 'je suis un texte en minuscule' | uppercase }}</p>
+  <p> Minuscule: {{ 'JE SUIS UN TEXTE EN MAJUSCULE' | lowercase }}</p>
+  <p> Titre: {{ 'je suis un titre de page' | titlecase }}</p>
+</article>
 
-    <p>Majuscule: {{ 'je suis en minuscule' | uppercase }} </p>
-    <p>Minuscule: {{ 'je suis en majuscule' | lowercase }} </p>
-    <p>Titre: {{ 'je suis oune titre de page' | titlecase }} </p>
+<article>
+  <h3>Numérique</h3>
 
-    <article>
-        <h3>Numéric</h3>
-        <!-- number: '1.1-4' = au moin 1 chiffre avant la virgules, et de 1 à 4 chiffre après la virgule-->
-        <p>PI = {{ 3.141592 | number: '1.1-4' }}</p> 
-        <p>1/16 = {{ 1/16 | number: '2.1-5' }}</p>
+  <p>PI = {{ 3.141592 | number: '1.1-4' }}</p><!-- arrondi la valeur -->
+  <p> 1/16 = {{ 1 / 16 | number: '2.1-5' }}</p>
 
-        <p>Pourcentage = {{ 1/3 | percent: '2.2' }}</p>
-    </article>
+  <p>Pourcentage: {{ 1 / 3 | percent: '2.2' }}</p>
+</article>
 
-    <article>
-        <h3>Monétaire</h3>
+<article>
+  <h3>Monétaire</h3>
 
-        <p>Prix (code): {{ 1234567.89 | currency: 'CAD': 'code' }} </p>
-        <p>Prix (symbol): {{ 1234567.89 | currency: 'CAD': 'symbol' }} </p>
-        <p>Prix (symbol-narrow): {{ 1234567.89 | currency: 'CAD': 'symbol-narrow' }} </p>
-    </article>
+  <p>Prix (code): {{ 1234567.89 | currency: 'CAD': 'code' }}</p>
+  <p>Prix (symbol): {{ 1234567.89 | currency: 'CAD': 'symbol' }}</p>
+  <p>Prix (symbol-narrow): {{ 1234567.89 | currency: 'CAD': 'symbol-narrow' }}</p>
 
-    <article>
-        <h3>Date</h3>
+</article>
 
-        <p>Date : {{ date | date: 'dd/mm/yyyy' }}</p>
-        <p>Date : {{ date | date: 'dd/MM/yyyy HH:mm:ss ZZZZ': '+0130' }}</p>
-        <p>Date : {{ date | date: 'full' }}</p>
-    </article>
+<article>
+  <h3>Date</h3>
 
-    <article>
-        <h3>Objet</h3>
+  <p> Date: {{ date | date: 'dd/MM/yyyy' }}</p>
+  <p> Date: {{ date | date: 'dd/MM/yyyy HH:mm:ss ZZZZ': '+0130' }}</p>
+  <p> Date: {{ date | date: 'full' }}</p>
+</article>
 
-        <p> {{ object }} </p>
-        <p> {{ object | json }} </p>
-    </article>
+<article>
+  <h3>Objet</h3>
 
-    <article>
-        <h3>safe operator (?)</h3>
+  <p>{{ object }}</p>
+  <p>{{ object | json }}</p>
+</article>
 
-        <!--
-            user?.firstname =  si firstname est null , 
-            on affiche rien et pas d'erreur, 
-            sinon on affiche le firstname
-        -->
-        <p>user.firstname : {{ user?.firstname }} </p> 
-    </article>
+<article>
+  <h3>Safe Operator (?)</h3>
 
-    <article>
-        <h3>Slice</h3>
+  <p>user.firstname: {{ user?.firstname }}</p>
+  <p>user.address.city: {{ user?.address?.city }}</p>
+</article>
 
-        <!-- a corriger -->
-        <ul>
-            <li *ngFor= "let name of liste | slice: start : end "> {{ name }} </li>
-        </ul>
-    </article>
+<article>
+  <h3>Slice</h3>
 
-    <div class="btn-group btn-group-sm">
-        <button class="btn gtn-outline-primary" (click)="prev()" [disabled]="start == 0 " >&lt; &lt; prev</button>
-        <button class="btn gtn-outline-primary"(click)="next()" [disabled]="end >= liste.length "> next &gt; &gt;</button>
-    </div>
+  <ul> <!-- [0; 5[ / [5; 10[  -->
+    <li *ngFor="let name of liste | slice: start: end">{{ name }}</li>
+  </ul>
 
-</section>
+  <div class="btn-group btn-group-sm">
+    <button class="btn btn-outline-primary" (click)="prev()" [disabled]="start == 0"> &lt;&lt; Prev </button>
+    <button class="btn btn-outline-primary" (click)="next()" [disabled]="end >= liste.length"> Next &gt;&gt; </button>
+  </div>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<header>
+  <h1>Les Directives Personnalisées</h1>
+</header>
+
+<p>
+  Pour créer une directive: <code>ng generate directive ...</code> ou <code>ng g d ...</code><br/>
+  Une directive est une classe, dans laquelle on retouve un décorateur <code>@Directive</code>
+</p>
+
+<p>
+  Une directive peut s'appliquer avec 2 syntaxes différentes:<br/>
+  - en précisant le nom de la directive dans la balise HTML, comme un attribut HTML standard<br/>
+  - en précisant le nom de la directive encadré par des crochets [] (standard Angular).
+  Dans ce cas Angular attendra que vous transmettiez un paramètre<br/>
+</p>
+
+<p>
+  Les paramètres de directive, comme pour les directives peuvent s'appliquer avec 2 syntaxes différentes:<br/>
+  - comme un attribut HTML. Dans ce cas on précise le nom du paramètre d'entrée de la directive et on lui donnera
+  une valeur qui sera une chaine de caractère, à l'aide du signe égal.<br/>
+  exemple: <code>&lt;p attr="value"&gt; ... &lt;/p&gt;</code><br/>
+
+  - sous forme d'attribut Angular. Dans ce cas on précise le nom du paramètre d'entrée de la directive entre
+  crochet ([]) et on lui donnera une valeur soit en passant par une variable Angular, soit en transmettant une
+  valeur brut, à l'aide du signe égal.<br/>
+  exemple: <code>&lt;p [attr]=" &laquo;contexte angular&raquo; "&gt; ... &lt;/p&gt;</code>
+</p>
+
+<hr/>
+
+<p appHighlight>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi debitis in natus quas veritatis.
+  Aliquid atque dolore incidunt minus molestiae perspiciatis quis sit suscipit ullam veniam? Aliquam dignissimos laborum
+  quam.</p>
+
+<p appHighlight color="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi debitis in natus quas
+  veritatis. Aliquid atque dolore incidunt minus molestiae perspiciatis quis sit suscipit ullam veniam? Aliquam
+  dignissimos laborum quam.</p>
+
+<p appHighlight [color]=" 'red' ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi debitis in natus
+  quas veritatis. Aliquid atque dolore incidunt minus molestiae perspiciatis quis sit suscipit ullam veniam? Aliquam
+  dignissimos laborum quam.</p>
+
+<p [appHighlight]=" '#333' " [color]=" '#0f0' ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
+  debitis in natus quas veritatis. Aliquid atque dolore incidunt minus molestiae perspiciatis quis sit suscipit ullam
+  veniam? Aliquam dignissimos laborum quam.</p>

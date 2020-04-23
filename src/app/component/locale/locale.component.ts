@@ -7,14 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocaleComponent implements OnInit {
 
-
   date = new Date();
   lang: string;
-  devise = 'EUR';
+  devise: string;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

@@ -1,0 +1,39 @@
+<p>promobse works!</p>
+
+<section>
+    <h1>Les promesses</h1>
+    <p>Promesses = structure (classe) qui permet de créer des fonction Javascript asynchrone </p>
+    <p>
+        - tehn( callback ) : traite le résultat en réussite <br>
+        - catch (callback) : traite le résultat en échèc <br>
+        - finally (callback) : traitement quelque soit le résultat <br>
+    </p>
+
+    <button class="btn btn-outline-primary mb-3" (click)="btnPromise()" [disabled]="disabled">Synchroniser</button>
+
+    <p *ngIf="message" [ngClass]="class" > {{ message }} </p>
+
+    <ul class="list-unstyled">
+        <li *ngFor="let number of numbers"> {{ number }} </li>
+    </ul>
+
+    <article class="col">
+        <h3>Observable</h3>
+
+        <p>
+            un Observable peut émettre plusieur jeux de valeur (next()), tant qu'il ne se trouve pas
+            dans un état terminé (complete()) ou dans un état erreur (error())
+        </p>
+        <p>
+            pour récupérer les valeurs envoyé par un observable, il va falloir s'y abonner (souscrire)
+        </p>
+
+        <button class="btn btn-outline-primary mb-3" (click)="btnObservable()" [disabled]="obsDisabled">Synchroniser</button>
+
+        <p *ngIf="obsMessage" [ngClass]="class" > {{ obsMessage }} </p>
+
+        <ul class="list-unstyled">
+            <li *ngFor="let number of obsNumbers"> {{ number }} </li>
+        </ul>
+    </article>
+</section>
